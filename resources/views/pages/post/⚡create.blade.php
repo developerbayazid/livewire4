@@ -1,6 +1,8 @@
 <?php
 
 use Livewire\Component;
+use Livewire\Attributes\Layout;
+use App\Models\Post;
 
 new #[Layout('layouts::app', ['title' => 'Create Post'])] class extends Component
 {
@@ -9,13 +11,13 @@ new #[Layout('layouts::app', ['title' => 'Create Post'])] class extends Componen
 
     public function save()
     {
-        $this->validate([
+
+        Post::create($this->validate([
             'title' => 'required|min:3',
             'content' => 'required|min:10',
-        ]);
+        ]));
 
-        session()->flash('success', 'Post created!');
-        $this->reset();
+        $this->redirect('/');
     }
 
 };
