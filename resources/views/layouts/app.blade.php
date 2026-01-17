@@ -11,7 +11,7 @@
         @livewireStyles
          @fluxAppearance
     </head>
-        <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
+        <body class="bg-white dark:bg-zinc-800 antialiased">
         <flux:sidebar sticky collapsible class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
             <flux:sidebar.header>
                 <flux:sidebar.brand
@@ -25,30 +25,30 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="home" href="#" current>Home</flux:sidebar.item>
+                <flux:sidebar.item
+                    :current="request()->routeIs('dashboard')"
+                    icon="home"
+                    href="#">
+                    Dashboard
+                </flux:sidebar.item>
                 <flux:sidebar.item icon="inbox" badge="12" href="#">Inbox</flux:sidebar.item>
-                <flux:sidebar.item icon="document-text" href="#">Documents</flux:sidebar.item>
-                <flux:sidebar.item icon="calendar" href="#">Calendar</flux:sidebar.item>
+                <flux:sidebar.item
+                    :current="request()->routeIs('posts.*')"
+                    icon="document-text"
+                    href="{{ route('posts.index') }}">
+                        Posts
+                </flux:sidebar.item>
 
-                <flux:sidebar.group expandable icon="star" heading="Posts" class="grid">
-                    <flux:sidebar.item href="#">Posts</flux:sidebar.item>
-                    <flux:sidebar.item href="{{ route('posts.create') }}">Create Post</flux:sidebar.item>
-                </flux:sidebar.group>
-            </flux:sidebar.nav>
-
-            <flux:sidebar.spacer />
-
-            <flux:sidebar.nav>
+                <flux:sidebar.item icon="chart-bar" href="#">Reports</flux:sidebar.item>
                 <flux:sidebar.item icon="cog-6-tooth" href="#">Settings</flux:sidebar.item>
-                <flux:sidebar.item icon="information-circle" href="#">Help</flux:sidebar.item>
             </flux:sidebar.nav>
 
             <flux:dropdown position="top" align="start" class="max-lg:hidden">
-                <flux:sidebar.profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin" />
+                <flux:sidebar.profile avatar="https://allnextver.com/wp-content/uploads/2025/12/photo_2025-11-30_20-33-05.jpg" name="Bayazid Hasan" />
 
                 <flux:menu>
                     <flux:menu.radio.group>
-                        <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
+                        <flux:menu.radio checked>Bayazid Hasan</flux:menu.radio>
                         <flux:menu.radio>Truly Delta</flux:menu.radio>
                     </flux:menu.radio.group>
 
@@ -69,7 +69,7 @@
 
                 <flux:menu>
                     <flux:menu.radio.group>
-                        <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
+                        <flux:menu.radio checked>Bayazid Hasan</flux:menu.radio>
                         <flux:menu.radio>Truly Delta</flux:menu.radio>
                     </flux:menu.radio.group>
 

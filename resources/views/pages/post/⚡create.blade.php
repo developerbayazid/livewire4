@@ -32,6 +32,13 @@ new #[Layout('layouts::app', ['title' => 'Create Post'])] class extends Componen
 
         <flux:input wire:model="title" label="Title" />
         <flux:textarea wire:model="content" label="Content" />
+
+        <flux:radio.group wire:model="status" label="Status" class="max-sm:flex-col">
+            <flux:radio value="draft" label="Draft" description="Post will be save as draft" checked />
+            <flux:radio value="published" label="Published" description="Post will be published immediately" />
+        </flux:radio.group>
+
         <flux:button type="submit" variant="primary">Create Post</flux:button>
+
     </form>
 </div>

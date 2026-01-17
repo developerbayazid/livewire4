@@ -8,3 +8,4 @@ Route::get('/', function () {
 
 // Route::livewire('/posts', 'post.index')->name('posts.index');
 Route::livewire('/post/create', 'pages::post.create')->name('posts.create');
+Route::livewire('/posts', 'pages::post.index')->name('posts.index');
